@@ -1,0 +1,731 @@
+/*
+Theme Name: Ahli
+Author: A532
+Description: Custom theme for AHLI
+Version: 1.3
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentytwenty
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* ---------------MAIN/RESET CSS--------------- */
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.15;
+    padding: 0 10px ;
+    background-image: url(images/banner_bg.png);
+    background-repeat: no-repeat;
+    background-size: 68%;
+    background-position: top right;
+}
+
+p {
+    margin: 0;
+}   
+
+a:link, a:visited {
+    color: black;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* .container {
+    max-width: 1280px !important;
+} */
+
+
+/* ---------------HEADER--------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+    z-index: 999;
+}
+
+.header__main .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 0;
+}
+
+.header-logo img {
+    height: 70px;
+}
+
+.header-nav { 
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media only screen and (min-width : 580px) {
+    .header-nav { 
+        display: block;
+    }
+}
+.header-nav li {
+    display: inline-block;
+    padding:  10px 0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.header-nav li a {
+    text-decoration: none;
+    margin: 20px;
+    color: black;
+    font-weight: 500;
+}
+
+.header-nav .menu-item a:not([href]):not([tabindex]) {
+    color: black;
+}
+
+.header-nav > .menu-item .sub-menu {
+    visibility: hidden;
+    opacity: 0;
+    list-style: none;
+    background: white;
+    padding:0;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    text-align: left;
+    border: 1px solid silver;
+}
+
+.header-nav .menu-item .sub-menu .menu-item a{
+    color: black !important;
+}
+
+.sub-menu .menu-item:hover {
+    background: silver;
+    transition: 0.3s;
+}
+
+.header-nav > .menu-item .sub-menu .menu-item {
+    padding: 15px;
+}
+
+.header-nav > .menu-item:hover > .sub-menu {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.header-nav > .menu-item:hover a {
+    color: #ee390f !important;
+    transition: 0.3s;
+}
+@media only screen and (min-width : 769px) {
+    .events-url .sub-menu {
+        right: 0;
+        left: auto !important;
+    }
+}
+
+.sub-menu:hover {
+    visibility: visible;
+    
+}
+
+.sub-menu .menu-item {
+    display: list-item;
+}
+
+@media only screen and (max-width : 430px) {
+
+    .sub-menu .menu-item {
+        padding: 10px !important;
+    }
+
+    .sub-menu .menu-item a {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width : 384px) {
+    .events-url .sub-menu {
+        right: -50px;
+        left: unset !important;
+    }
+}
+
+
+.menu-item-has-children {
+    position: relative;
+}
+.menu-item-has-children > a::after {
+    display: inline-block;
+    position: absolute;
+    bottom: 43%;
+    right: 0;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+
+.menu-navigation-container{
+    position: relative;
+}
+
+@media only screen and (max-width : 768px) {
+    .header__main .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* ------------------HOMEPAGE------------------ */
+/* ----------BANNER---------- */
+.banner {
+    padding-top: 4rem;
+}
+
+.banner-right img {
+    width:100%;
+}
+
+.banner-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media only screen and (min-width : 350px) {
+    .banner-button {
+        gap: 1rem;
+    }
+}
+
+.banner-left h5 {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #556172;
+    margin-bottom: 14px;
+}
+
+.banner-left h2 {
+    font-size: 55px;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin-bottom: 27px;
+    line-height: 1.18;
+}
+
+@media only screen and (max-width : 767px) {
+    .banner-left h2 {
+        font-size: 35px;
+    }
+}
+
+.banner-left p {
+    font-size: 15px;
+    line-height: 1.8;
+    font-family: "Roboto", sans-serif;
+    color: #777777;
+}
+@media only screen and (max-width : 767px) {
+
+    .banner .row,
+    .about-ahli .row,
+    .school-info .row,
+    .university-info .row,
+    .development .row {
+        flex-direction: column-reverse;
+        gap: 5rem;
+    }
+
+    .about-ahli .row,
+    .school-info .row,
+    .development .row {
+        gap: 0;
+    }
+    
+}
+.banner-button {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-start;
+}
+.b1 {
+    background-image: linear-gradient(to left, #ee390f 0%, #f9b700 51%, #ee390f 100%);
+    box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.b2 {
+    border: black;
+}
+
+.b1,.b2{
+    margin: 0.5rem 0;
+    font-weight: 600;
+    padding: 13.5px 40px;
+    border-radius: 50px;
+    font-size: 14px;
+}
+
+@media only screen and (max-width : 400px) {
+    .b1,.b2 {
+        margin: 0;
+        padding: 13.5px 25px;
+    }
+}
+
+/* ----------FEATURE-PART---------- */
+.feature-part{ 
+    padding-top: 3rem;
+}
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    border: 1px solid white;
+    padding: 1rem;
+}
+.feature-item h3 {
+    font-weight: 600;
+}
+.feature-part1 .feature-item p {
+    text-align: center;
+}
+
+.feature-part1 .feature-item:hover{
+    border: 1px solid #ee390f;
+    transition: border .4s;
+}
+
+.feature-img  {
+    display: block;
+    position: relative;
+    height: 70px;
+    width: 70px;
+    background: #f0f4f6;
+    border-radius: 50%;
+}
+
+.feature-img i::before {
+    font-size: 24px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+    color: black
+}
+
+
+.feature-part2 .feature-img {
+    background: #fff0e0;
+}
+
+.feature-part2 .feature-item {
+    align-items: flex-start;
+}
+
+.feature-title h3 {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.feature-content p {
+    color: #7f7f7f;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.feature_part .single_feature:hover .single_feature_part {
+    border: 1px solid rgb(255, 102, 59);
+}
+/* ----------FOOTER---------- */
+footer {
+    background-color: #f7f7f7;
+    margin: 3rem -20px 0;
+    text-align: center;
+    padding: 20px;
+}
+
+footer img {
+    height: unset;
+}
+
+.footer-area .row {
+    justify-content: space-between;
+}
+
+.footer-left img {
+    height: 100px;
+    margin-bottom: 2rem;
+}
+
+.footer-mid li:first-child {
+    margin-bottom: 23px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #0c2e60;
+}
+
+
+.copyright,.address {
+    font-size: 14px;
+    color: #888888;
+}
+
+footer ul {
+    padding: 0;
+    list-style: none;
+    word-break: break-word;
+}
+/* ------------------ABOUT PAGE------------------ */
+.about-right {
+    text-align: center;
+    margin: auto;
+}
+
+.aboutus-menu {
+    pointer-events:all;
+}
+
+.dir-img {
+    text-align: center;
+    margin: auto;
+    border: 1px solid #f0f4f6;
+}
+
+.swiper {
+    height: 500px;
+    padding-top: 3rem !important;
+}
+
+.video-banner {
+    background-color: #e8e6fa;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgb(208, 204, 252,.4);
+    border-radius: 10px;
+}
+
+.video-banner h1 {
+    padding: 1.5rem 0;
+}
+
+.mySwiper img {
+    height: 100%;
+    width: auto;
+}
+
+.swiper-slide {
+    text-align: center;
+}
+
+.courses {
+    padding-top: 4rem;
+}
+
+.courses .feature-item  {
+    display: block;
+    text-align: center;
+}
+
+@media (max-width: 575px) {
+    .courses .feature-item  {
+        border-bottom: 1px solid silver;
+    }
+}
+
+.courses .feature-item img {
+    height:150px;
+    max-width: 100%;
+}
+
+.courses p {
+    line-height: 1.929;
+    font-size: 14px;
+    margin: 0;
+    color: rgb(136, 136, 136);
+}
+
+.courses .course-highlight {
+    font-size: 14px;
+    padding: 3.5px 21px;
+    background: #0c2e60;
+    text-transform: capitalize;
+    display: inline-block;
+    border: 2px solid transparent;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: #fff;
+    min-width: 80%;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+
+.course-highlight:hover {
+    background: rgba(255, 102, 59, 0.8);
+}
+
+.course-img{
+    display: flex;
+    justify-content: center;
+}
+
+.about-ahli,
+.school-info,
+.university-info,
+.directors,
+.applications,
+.development,
+.courses-page,
+.classroom-shots,
+.contact-banner,
+.contactus-form {
+    padding-top: 3rem;
+}
+
+.directors .row {
+    margin-bottom: 2rem;
+}
+
+.school-info img,
+.university-info img,
+.applications img {
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+}
+
+.school-info p {
+    margin-top: 1rem;
+}
+
+.page-heading {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
+
+@media only screen and (max-width : 580px) {
+    .page-heading {
+        font-size: 2.5rem;
+    }
+}
+
+
+.development video {
+    width: 100%;
+}
+
+.about-ahli h6::before {
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    height: 2px;
+    width: 60px;
+    content: "";
+    background-color: rgb(255, 102, 59);
+}
+
+.about-ahli h6 {
+    position: relative;
+    padding-left: 75px;
+    text-transform: uppercase;
+}
+
+.about-left h1,
+.school-info h1,
+.courses h1,
+.courses-page h1 {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 38px;
+    position: relative;
+    margin-top: 19px;
+    color: rgb(12, 46, 96);
+}
+
+.about-left ul {
+    padding-left: 0
+}
+
+.benefits .about-left p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding-top: 12px;
+    color: rgb(136, 136, 136);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(12, 46, 96);
+    font-family: Poppins, sans-serif;
+}
+
+
+.courses-page .row {
+    row-gap: 2rem;
+    
+}
+
+.course-item {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.course-item img {
+}
+
+.course-item h2 {
+    color: #ff663b;
+    font-size: 16px;
+    padding: 5px 5px 0;
+    margin: 0;
+    background-color: #e8eaea;
+    font-weight: 600;
+    margin: auto;
+}
+
+.course-item p {
+    font-size: 12px;
+    margin-bottom: 0px;
+    color: #888888;
+    padding: 5px;
+    background-color: #e8eaea;
+    margin: auto;
+}
+
+.course-cat {
+    padding: 3rem 0;
+}
+
+.course-cat h1 {
+    text-align: center;
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: rgb(255, 102, 59);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 1rem;
+}
+
+.scroll-top__link {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #d0ccfc;
+    z-index: 9;
+    padding: 5px 8px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width : 575px) {
+    .course-card {
+        width: 320px;
+    }
+
+}
+
+.course-card {
+    width:230px;
+}
+
+.classroom-shots .row {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgb(208, 204, 252,.4);;
+    border-radius: 10px;
+}
+
+
+
+.classroom-shots video {
+    width: 100%;
+}
+
+.byline {
+    font-weight: bold;
+
+}
+.contact-banner .title {
+    display: flex;
+    align-items: center;
+}
+
+.contact-banner .title h1 {
+    font-size: 50px;
+}
+
+.contact-side {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+.contact-side h6{
+    margin-bottom: 0;
+    word-break: break-word;
+}
+.contact-side p{
+    color: #8a8a8a;
+    font-size: 14px;
+}
+
+.contact-side .fa {
+    font-size: 50px;
+    min-width: 50px;
+    text-align: center;
+}
+.wpforms-field-container input {
+    border: 1px solid #d0ccfc;
+    padding: 1rem;
+}
+.wpforms-container .wpforms-field input[type],
+.wpforms-container .wpforms-field input[type]:focus,
+.wpforms-container .wpforms-field textarea,
+.wpforms-container .wpforms-field textarea:focus {
+    
+    border: 1px solid #d0ccfc;
+    padding: 1rem;
+    min-width: 300px;
+}
+
+.wpforms-container button.wpforms-submit[type="submit"] {
+    color: #fff !important;
+    border-color: #edeff2;
+    padding: 12px 25px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: 1px solid #edeff2;
+    text-transform: uppercase;
+    background-color: #ff663b !important;
+    transition: 0.5s;
+}
